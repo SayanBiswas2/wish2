@@ -83,6 +83,7 @@ body {
 #circle svg circle{
   stroke: white;
   stroke-dasharray: 600;
+  stroke-dashoffset: 600;
 }
 
 #circle div{

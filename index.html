@@ -57,7 +57,7 @@
         let time= setInterval(async()=>{
             left.innerHTML= count--;
             for (let i = 0; i < 2; i++) {
-                circle[i].style.strokeDasharray= `${circle[i].style.strokeDasharray==""? 600 : parseInt(circle[i].style.strokeDasharray) - 120}`;
+                circle[i].style.strokeDashoffset= `${circle[i].style.strokeDashoffset==""? 600 : parseInt(circle[i].style.strokeDashoffset) - 120}`;
             }
             if(count<0){
                 clearInterval(time)
