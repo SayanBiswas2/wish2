@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️❤️❤️❤️❤️❤️❤️❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">  
+</head>
+<body>
+    <div id="bak_img"></div>
+    <div id="timer_div">
+        <div id="circle">
+            <div id="dot"></div>
+            <svg>
+                <circle cx="95" cy="95" r="95"></circle>
+                <circle cx="95" cy="95" r="95"></circle>
+            </svg>
+            <div id="left">5</div>
+        </div>
+    </div>
+    <div class="body">
+        <div class="birthdayCard">
+            <div class="cardFront">
+                <h3 id="wish_front">শুভ জন্মদিন ❣️</h3>
+                <div class="balloons">
+                    <div class="balloonOne"></div>      
+                    <div class="balloonTwo"></div>
+                    <div class="balloonThree"></div>
+                    <div class="balloonFour"></div>
+                </div>
+            </div>
+            <div class="cardInside">
+                <h3 class="back">happy birthday prio 🙂.....</h3>
+                <p id="wish_desc">prio,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15/8/2022 তোকে প্রথম দেখে ছিলাম স্কুলে সাদা শাড়ি তে। সবাই যখন আমায় দেবলীনা বলতে ব্যাস্ত তখন আমি তোতে মুগ্ধ। তোর সাথে পরিচয় হওয়ার পর এই টা তোর প্রথম জন্মদিন। এটা আমার কাছে একটু স্পেশাল। জন্মদিন এর অনেক শুভেচ্ছা অনেক অনেক ভালো কাটুক দিন টা।জীবনের সব ইচ্ছা যেন পূরণ হয় 😊।</p>
+                <p class="sender">শুভ জন্মদিন সাতচুন্নি</p>
+            </div>
+        </div>
+        <h2 id="ctc">Click this card</h2>
+    </div>
+    <audio id="song" hidden="true">
+        <!--source src="horse.ogg" type="audio/ogg"-->
+        <source src="song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+<script>
+    let count = 5;
+    let left = document.getElementById("left")
+    let circle= document.getElementById("circle").children[1].children
+
+        async function int(){
+           
+        let time= setInterval(async()=>{
+            left.innerHTML= count--;
+            for (let i = 0; i < 2; i++) {
+                circle[i].style.strokeDasharray= `${circle[i].style.strokeDasharray==""? 600 : parseInt(circle[i].style.strokeDasharray) - 120}`;
+            }
+            if(count<0){
+                clearInterval(time)
+                document.getElementById("timer_div").style.display= "none";
+                document.getElementsByClassName("body")[0].style.display = 'flex';
+                document.getElementById("song").play()
+                
+            }
+        },1000)
+     }
+
+    int()
+
+    document.body.addEventListener("click",()=>{
+        document.getElementById("song").play()
+    })
+</script>
+</html>
